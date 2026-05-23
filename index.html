@@ -424,6 +424,30 @@
 
     }
 
+    /* BIBLE VERSE ANIMATION */
+
+    .bible-verse-anim{
+      position:relative;
+      height:120px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:20px;
+      margin-bottom:18px;
+    }
+
+    .bible-verse-anim svg{width:360px; max-width:90%; height:110px; overflow:visible}
+
+    .bible-verse-anim .sheep,
+    .bible-verse-anim .jesus{transform-box:fill-box; transform-origin:center}
+
+    .sheep .body{fill:#ffffff; stroke:#d8d8d8; stroke-width:2}
+    .sheep .head{fill:#f6f6f6; stroke:#d0d0d0}
+    .jesus .robe{fill:#f1f7ff; stroke:#cfe1ff}
+    .jesus .head{fill:#ffebd6}
+    .jesus .halo{fill:none; stroke:#ffd86b; stroke-width:2}
+
+
   </style>
 </head>
 <body>
@@ -679,6 +703,29 @@
 
   <footer>
 
+    <div class="bible-verse-anim" aria-hidden="true">
+      <svg viewBox="0 0 360 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- ground line -->
+        <line x1="10" y1="100" x2="350" y2="100" stroke="#e6f0ff" stroke-width="3" stroke-linecap="round" />
+
+        <!-- sheep group -->
+        <g class="sheep" transform="translate(40,10)">
+          <ellipse class="body" cx="0" cy="70" rx="28" ry="20" />
+          <circle class="head" cx="34" cy="64" r="10" />
+          <circle cx="30" cy="60" r="2" fill="#333" />
+          <path d="M-12 78 l6 10 M-2 78 l6 10" stroke="#cfcfcf" stroke-width="3" stroke-linecap="round" />
+        </g>
+
+        <!-- mini Jesus group -->
+        <g class="jesus" transform="translate(120,0)">
+          <circle class="halo" cx="0" cy="28" r="12" />
+          <circle class="head" cx="0" cy="34" r="8" />
+          <rect class="robe" x="-10" y="44" width="20" height="32" rx="6" />
+          <path d="M-6 74 l-6 12 M6 74 l6 12" stroke="#d0d0d0" stroke-width="2" stroke-linecap="round" />
+        </g>
+      </svg>
+    </div>
+
     <p>
       “I can do all things through Christ who strengthens me.”
     </p>
@@ -785,6 +832,37 @@
       });
 
     });
+
+    // BIBLE VERSE ANIMATION (mini Jesus follows sheep)
+
+    const sheepEl = document.querySelector('.bible-verse-anim .sheep');
+    const jesusEl = document.querySelector('.bible-verse-anim .jesus');
+
+    if(sheepEl && jesusEl){
+
+      // horizontal follow: sheep goes back and forth, Jesus follows with a slight lag
+      gsap.to(sheepEl,{
+        x:220,
+        duration:6,
+        repeat:-1,
+        yoyo:true,
+        ease:'power1.inOut'
+      });
+
+      gsap.to(jesusEl,{
+        x:220,
+        duration:6.2,
+        repeat:-1,
+        yoyo:true,
+        ease:'power1.inOut',
+        delay:0.12
+      });
+
+      // subtle bobbing to suggest walking
+      gsap.to('.jesus .head', { y: '+=2', duration:0.6, repeat:-1, yoyo:true, ease:'sine.inOut' });
+      gsap.to('.sheep .body', { y: '+=3', duration:0.8, repeat:-1, yoyo:true, ease:'sine.inOut' });
+
+    }
 
   </script>
 
