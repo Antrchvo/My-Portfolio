@@ -283,10 +283,16 @@
     .card{
       padding:30px;
       transition:0.4s;
+      border-radius:30px;
+      background:rgba(255,255,255,0.85);
+      border:1px solid rgba(255,255,255,0.55);
+      box-shadow:0 22px 60px rgba(18,53,91,0.12);
+      backdrop-filter:blur(18px);
     }
 
     .card:hover{
       transform:translateY(-10px) scale(1.02);
+      box-shadow:0 28px 80px rgba(18,53,91,0.18);
     }
 
     .card h3{
@@ -296,6 +302,36 @@
     .card p{
       color:#4f6883;
       line-height:1.8;
+    }
+
+    .service-card{
+      border-left:4px solid #0077ff;
+    }
+
+    .testimonial-card{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .testimonial-card::before{
+      content:'“';
+      position:absolute;
+      top:25px;
+      left:25px;
+      font-size:5rem;
+      color:rgba(0,119,255,0.08);
+      font-weight:700;
+      pointer-events:none;
+    }
+
+    .testimonial-card p{
+      font-style:italic;
+      color:#304b6f;
+    }
+
+    .testimonial-card h4{
+      margin-top:24px;
+      color:#12355b;
     }
 
     /* EXPERIENCE */
@@ -654,17 +690,17 @@
 
     <div class="grid">
 
-      <div class="card glass" data-tilt>
+      <div class="card glass service-card" data-tilt>
         <h3>AI Customer Support</h3>
         <p>Smart support workflows, CRM management, and customer service optimization that keeps clients satisfied and replies fast.</p>
       </div>
 
-      <div class="card glass" data-tilt>
+      <div class="card glass service-card" data-tilt>
         <h3>Visual Branding & Design</h3>
         <p>Photoshop editing, social media visuals, and promotional assets designed to strengthen your brand identity and conversion impact.</p>
       </div>
 
-      <div class="card glass" data-tilt>
+      <div class="card glass service-card" data-tilt>
         <h3>Workflow Automation</h3>
         <p>AI-assisted automation and CRM processes that reduce manual work and improve operational efficiency for small businesses.</p>
       </div>
@@ -712,19 +748,19 @@
 
     <div class="grid">
 
-      <div class="card glass" data-tilt>
+      <div class="card glass testimonial-card" data-tilt>
         <p>“Anthony delivered strong customer support improvements and attractive visuals that helped our campaign perform better.”</p>
-        <h4 style="margin-top:20px;">— Local Retail Business</h4>
+        <h4>— Local Retail Business</h4>
       </div>
 
-      <div class="card glass" data-tilt>
+      <div class="card glass testimonial-card" data-tilt>
         <p>“Fast, professional, and creative. The AI workflows saved us time while improving our response quality.”</p>
-        <h4 style="margin-top:20px;">— Marketing Lead</h4>
+        <h4>— Marketing Lead</h4>
       </div>
 
-      <div class="card glass" data-tilt>
+      <div class="card glass testimonial-card" data-tilt>
         <p>“Great communication and dependable delivery. Anthony helped us present our brand more clearly online.”</p>
-        <h4 style="margin-top:20px;">— E-commerce Manager</h4>
+        <h4>— E-commerce Manager</h4>
       </div>
 
     </div>
