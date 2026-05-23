@@ -496,15 +496,15 @@
   <div class="cursor-glow"></div>
 
   <div class="moving-words">
-    AI TOOLS • PHOTOSHOP • AUTOMATION • CUSTOMER SUPPORT • DESIGN • CREATIVITY
+    ARTIFICIAL INTELLIGENCE TOOLS • PHOTOSHOP • AUTOMATION • CUSTOMER SUPPORT • DESIGN • CREATIVITY
   </div>
 
   <div class="moving-words">
-    CHATGPT • MIDJOURNEY • SOCIAL MEDIA • INNOVATION • CRM • AI WORKFLOW
+    CHATGPT • MIDJOURNEY • SOCIAL MEDIA • INNOVATION • CUSTOMER RELATIONSHIP MANAGEMENT • ARTIFICIAL INTELLIGENCE WORKFLOW
   </div>
 
   <div class="moving-words">
-    CUSTOMER EXPERIENCE • PROBLEM SOLVING • DIGITAL CREATOR • AI SPECIALIST
+    CUSTOMER EXPERIENCE • PROBLEM SOLVING • DIGITAL CREATOR • ARTIFICIAL INTELLIGENCE SPECIALIST
   </div>
 
   <nav>
@@ -796,10 +796,10 @@
 
       current = words[i];
 
-      if(deleting){
-        typing.textContent = current.substring(0,j--);
+        if(deleting){
+        typing.textContent = current.substring(0, --j);
       }else{
-        typing.textContent = current.substring(0,j++);
+        typing.textContent = current.substring(0, ++j);
       }
 
       if(!deleting && j === current.length){
