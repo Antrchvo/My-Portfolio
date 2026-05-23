@@ -713,59 +713,64 @@
   <footer>
 
     <div class="bible-verse-anim" aria-hidden="true">
-      <svg viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg">
-        <!-- ground -->
-        <rect x="0" y="110" width="520" height="70" fill="url(#groundGrad)" />
-        <defs>
-          <linearGradient id="groundGrad" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stop-color="#eaf4ff" />
-            <stop offset="100%" stop-color="#ffffff" />
-          </linearGradient>
-        </defs>
+      <svg viewBox="0 0 520 160" xmlns="http://www.w3.org/2000/svg">
+        <!-- flat sky -->
+        <rect x="0" y="0" width="520" height="160" fill="#f7fbff" />
 
-        <!-- sheep -->
-        <g class="sheep" transform="translate(60,30)" style="cursor:default">
-          <ellipse class="body" cx="0" cy="70" rx="34" ry="22" />
-          <g class="sHead" transform="translate(40,58)">
-            <circle class="head" cx="0" cy="0" r="12" />
-            <circle cx="-3" cy="-2" r="2" fill="#333" />
-            <path d="M-8 6 l6 12 M2 6 l6 12" stroke="#cfcfcf" stroke-width="3" stroke-linecap="round" />
+        <!-- ground strip -->
+        <rect x="0" y="120" width="520" height="40" fill="#eef7ff" />
+
+        <!-- 2D sheep (flat, fluffy circles) -->
+        <g class="sheep" transform="translate(40,28)" style="cursor:default">
+          <g class="fluff" transform="translate(0,40)">
+            <circle cx="-22" cy="-6" r="14" fill="#ffffff" stroke="#e6eef8" stroke-width="1" />
+            <circle cx="-6" cy="-14" r="16" fill="#ffffff" stroke="#e6eef8" stroke-width="1" />
+            <circle cx="12" cy="-8" r="15" fill="#ffffff" stroke="#e6eef8" stroke-width="1" />
+            <circle cx="0" cy="6" r="18" fill="#ffffff" stroke="#e6eef8" stroke-width="1" />
+          </g>
+          <!-- face -->
+          <g class="sHead" transform="translate(48,78)">
+            <circle class="face" cx="0" cy="0" r="10" fill="#f7efe6" stroke="#e8d9c8" />
+            <circle cx="-3" cy="-2" r="1.8" fill="#222" />
+            <circle cx="4" cy="-2" r="1.8" fill="#222" />
+            <path d="M-6 6 l6 10 M2 6 l6 10" stroke="#cfcfcf" stroke-width="3" stroke-linecap="round" />
+          </g>
+          <!-- sheep legs -->
+          <g class="sLegs" transform="translate(36,96)">
+            <g class="sLeftLeg" transform="translate(-8,0)">
+              <rect x="-3" y="0" width="6" height="18" rx="2" fill="#d8d0c6" />
+            </g>
+            <g class="sRightLeg" transform="translate(18,0)">
+              <rect x="-3" y="0" width="6" height="18" rx="2" fill="#d8d0c6" />
+            </g>
           </g>
         </g>
 
-        <!-- Jesus (larger, colorful, with legs) -->
-        <g class="jesus" transform="translate(240,10)">
-
-          <!-- halo -->
-          <circle class="halo" cx="0" cy="22" r="18" stroke="#ffd86b" stroke-width="3" fill="rgba(255,216,107,0.06)" />
-
-          <!-- hair & head group -->
-          <g class="headGroup" transform="translate(0,34)">
-            <circle class="head" cx="0" cy="0" r="16" fill="#ffebd6" />
-            <path class="hair" d="M-14-4 C-10 -18, 10 -18, 14 -4 L14 2 C8 -6, -8 -6, -14 2 Z" fill="#3b2f2f" />
-            <path class="beard" d="M-8 6 C-4 14, 4 14, 8 6 C4 10, -4 10, -8 6 Z" fill="#3b2f2f" />
-            <circle class="eye" cx="-5" cy="-2" r="1.6" fill="#1b1b1b" />
-            <circle class="eye" cx="5" cy="-2" r="1.6" fill="#1b1b1b" />
+        <!-- 2D Jesus (flat, colorful) -->
+        <g class="jesus" transform="translate(240,12)">
+          <circle class="halo" cx="0" cy="16" r="16" fill="#fff3d9" stroke="#ffd86b" stroke-width="2" />
+          <g class="headGroup" transform="translate(0,36)">
+            <circle class="head" cx="0" cy="0" r="14" fill="#ffebd6" />
+            <path class="hair" d="M-12 -2 C-8 -14, 8 -14, 12 -2 L12 6 C8 0, -8 0, -12 6 Z" fill="#3b2f2f" />
+            <path class="beard" d="M-8 6 C-4 12, 4 12, 8 6 C4 10, -4 10, -8 6 Z" fill="#3b2f2f" />
+            <circle cx="-4" cy="-2" r="1.6" fill="#111" />
+            <circle cx="4" cy="-2" r="1.6" fill="#111" />
           </g>
-
-          <!-- body/robe -->
-          <g class="bodyGroup" transform="translate(0,64)">
-            <path class="robe" d="M-30 0 L-18 56 L18 56 L30 0 Z" fill="#8fc6ff" stroke="#66aef7" stroke-width="2" />
-            <path class="innerRobe" d="M-6 0 L0 56 L6 0 Z" fill="#fff" opacity="0.18" />
+          <!-- robe (flat) -->
+          <g class="bodyGroup" transform="translate(0,66)">
+            <rect x="-20" y="0" width="40" height="44" rx="6" fill="#7ec0ff" stroke="#5fa7ea" stroke-width="1.5" />
           </g>
-
-          <!-- legs (pivot at hips for walk) -->
+          <!-- legs -->
           <g class="legs" transform="translate(0,112)">
-            <g class="leftLeg" transform="translate(-10,0)">
-              <rect x="-4" y="0" width="8" height="28" rx="3" fill="#f4d6b8" />
-              <rect x="-6" y="26" width="12" height="8" rx="3" fill="#6b4a2a" />
+            <g class="leftLeg" transform="translate(-8,0)">
+              <rect x="-4" y="0" width="8" height="26" rx="3" fill="#f4d6b8" />
+              <rect x="-6" y="24" width="12" height="8" rx="2" fill="#6b4a2a" />
             </g>
-            <g class="rightLeg" transform="translate(10,0)">
-              <rect x="-4" y="0" width="8" height="28" rx="3" fill="#f4d6b8" />
-              <rect x="-6" y="26" width="12" height="8" rx="3" fill="#6b4a2a" />
+            <g class="rightLeg" transform="translate(8,0)">
+              <rect x="-4" y="0" width="8" height="26" rx="3" fill="#f4d6b8" />
+              <rect x="-6" y="24" width="12" height="8" rx="2" fill="#6b4a2a" />
             </g>
           </g>
-
         </g>
 
       </svg>
@@ -878,57 +883,62 @@
 
     });
 
-    // BIBLE VERSE ANIMATION (enhanced: walking legs + cursor interactivity)
+    // BIBLE VERSE ANIMATION (2D, horizontal movement + cursor-x interactivity)
 
     const container = document.querySelector('.bible-verse-anim');
     const sheepEl = document.querySelector('.bible-verse-anim .sheep');
     const jesusEl = document.querySelector('.bible-verse-anim .jesus');
     const leftLeg = document.querySelector('.bible-verse-anim .leftLeg');
     const rightLeg = document.querySelector('.bible-verse-anim .rightLeg');
+    const sLeftLeg = document.querySelector('.bible-verse-anim .sLeftLeg');
+    const sRightLeg = document.querySelector('.bible-verse-anim .sRightLeg');
     const headGroup = document.querySelector('.bible-verse-anim .headGroup');
 
-    if(sheepEl && jesusEl && leftLeg && rightLeg){
+    if(sheepEl && jesusEl){
 
-      // sheep walks back and forth
-      const sheepTween = gsap.to(sheepEl,{ x:220, duration:6, repeat:-1, yoyo:true, ease:'power1.inOut' });
+      // both move horizontally back and forth (same delta) so relative positions stay consistent
+      const walkDistance = 220;
+      const duration = 5.5;
 
-      // jesus follows sheep with slight lag
-      const jesusFollow = gsap.to(jesusEl,{ x:220, duration:6.2, repeat:-1, yoyo:true, ease:'power1.inOut', delay:0.12 });
+      gsap.to(sheepEl, { x: walkDistance, duration, repeat: -1, yoyo: true, ease: 'power1.inOut' });
+      gsap.to(jesusEl, { x: walkDistance, duration: duration + 0.2, repeat: -1, yoyo: true, ease: 'power1.inOut', delay: 0.12 });
 
-      // walking legs (alternate rotation)
-      gsap.to(leftLeg, { rotation: 28, duration:0.45, repeat:-1, yoyo:true, ease:'sine.inOut', transformOrigin:'top center' });
-      gsap.to(rightLeg, { rotation: -28, duration:0.45, repeat:-1, yoyo:true, ease:'sine.inOut', transformOrigin:'top center', delay:0.225 });
+      // legs: rotate at hips to simulate walking (both characters)
+      if(leftLeg && rightLeg){
+        gsap.to(leftLeg, { rotation: 28, duration: 0.45, repeat: -1, yoyo: true, ease: 'sine.inOut', transformOrigin: 'top center' });
+        gsap.to(rightLeg, { rotation: -28, duration: 0.45, repeat: -1, yoyo: true, ease: 'sine.inOut', transformOrigin: 'top center', delay: 0.225 });
+      }
 
-      // light bobbing of body/head
-      gsap.to(headGroup, { y: '+=3', duration:0.6, repeat:-1, yoyo:true, ease:'sine.inOut' });
+      if(sLeftLeg && sRightLeg){
+        gsap.to(sLeftLeg, { rotation: 18, duration: 0.48, repeat: -1, yoyo: true, ease: 'sine.inOut', transformOrigin: 'top center' });
+        gsap.to(sRightLeg, { rotation: -18, duration: 0.48, repeat: -1, yoyo: true, ease: 'sine.inOut', transformOrigin: 'top center', delay: 0.24 });
+      }
 
-      // cursor interactivity: when pointer is over the container, pause follow and move Jesus toward cursor
+      // gentle head/body bob (2D feel)
+      if(headGroup) gsap.to(headGroup, { y: '+=2', duration: 0.6, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+
+      // cursor interactivity: when pointer over container, make Jesus lean toward pointer x (horizontal only)
       let pointerActive = false;
+      let jesusFollowTween;
 
-      container.addEventListener('pointerenter', ()=>{ pointerActive = true; jesusFollow.pause(); });
-      container.addEventListener('pointerleave', ()=>{ pointerActive = false; jesusFollow.resume(); });
+      container.addEventListener('pointerenter', ()=>{ pointerActive = true; });
+      container.addEventListener('pointerleave', ()=>{ pointerActive = false; });
 
       container.addEventListener('pointermove', (e)=>{
         if(!pointerActive) return;
         const rect = container.getBoundingClientRect();
-        const localX = e.clientX - rect.left; // 0..width
-        const localY = e.clientY - rect.top;
-        const nx = (localX / rect.width - 0.5) * 2; // -1 .. 1
-        const ny = (localY / rect.height - 0.5) * 2;
+        const localX = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
+        const sheepX = gsap.getProperty(sheepEl, 'x') || 0;
 
-        const sheepX = gsap.getProperty(sheepEl,'x') || 0;
+        // map pointer x to target near sheep but shifted by pointer (horizontal only)
+        const pct = localX / rect.width; // 0..1
+        // center position relative to sheep path
+        const pathCenter = sheepX + walkDistance / 2;
+        const targetX = (pct - 0.5) * 2 * 60 + (sheepX * 1); // lean +/-60px around sheep
 
-        const targetX = sheepX + nx * 40; // follow sheep but lean toward cursor
-        const targetY = ny * 10; // small vertical shift
+        // only animate x to keep horizontal movement
+        gsap.to(jesusEl, { x: targetX, duration: 0.28, ease: 'power3.out' });
 
-        gsap.to(jesusEl, { x: targetX, y: targetY, duration:0.35, ease:'power3.out' });
-
-        // rotate head slightly toward cursor
-        const headRect = headGroup.getBoundingClientRect();
-        const cx = headRect.left + headRect.width/2;
-        const cy = headRect.top + headRect.height/2;
-        const angle = Math.atan2(e.clientY - cy, e.clientX - cx) * 180 / Math.PI;
-        gsap.to(headGroup, { rotation: angle * 0.08, transformOrigin:'center center', duration:0.25 });
       });
 
     }
