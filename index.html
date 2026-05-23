@@ -308,6 +308,27 @@
       line-height:1.8;
     }
 
+    .pdf-preview{
+      margin:20px 0;
+      border-radius:22px;
+      overflow:hidden;
+      min-height:220px;
+      background:rgba(2,14,32,0.95);
+      border:1px solid rgba(255,255,255,0.12);
+    }
+
+    .pdf-preview object{
+      width:100%;
+      min-height:220px;
+      border:none;
+      display:block;
+    }
+
+    .btn.small-btn{
+      padding:12px 24px;
+      font-size:0.95rem;
+    }
+
     .service-card{
       border-left:4px solid #0077ff;
     }
@@ -726,12 +747,28 @@
 
       <div class="card glass" data-tilt>
         <h3>AI Social Media Branding</h3>
+        <div class="pdf-preview">
+          <object data="./Assets/AI Branding.pdf" type="application/pdf">
+            <p style="padding:18px; color:#c7d2e8;">
+              PDF preview not supported in this browser. <a href="./Assets/AI Branding.pdf" target="_blank" style="color:#7cc0ff; text-decoration:none;">Open the full AI Branding PDF</a>.
+            </p>
+          </object>
+        </div>
         <p>Developed AI-powered branding assets, promotional creatives, and high-impact social media visuals optimized for engagement and audience growth. Designed cohesive, visually engaging content that strengthened online brand presence and ensured brand consistency across digital platforms, resulting in increased engagement and improved brand recognition.</p>
+        <a href="./Assets/AI Branding.pdf" target="_blank" class="btn small-btn">Open AI Branding PDF</a>
       </div>
 
       <div class="card glass" data-tilt>
         <h3>Photoshop Creative Designs</h3>
+        <div class="pdf-preview">
+          <object data="./PhotoshopDesigns.pdf" type="application/pdf">
+            <p style="padding:18px; color:#c7d2e8;">
+              PDF preview not supported in this browser. <a href="./PhotoshopDesigns.pdf" target="_blank" style="color:#7cc0ff; text-decoration:none;">Open the full Photoshop Designs PDF</a>.
+            </p>
+          </object>
+        </div>
         <p>Designed posters, edited images, and enhanced digital content using Photoshop and creative design techniques.</p>
+        <a href="./PhotoshopDesigns.pdf" target="_blank" class="btn small-btn">Open Photoshop Designs PDF</a>
       </div>
 
       <div class="card glass" data-tilt>
