@@ -369,16 +369,65 @@
     /* FOOTER */
 
     footer{
-      background:#12355b;
+      position:relative;
+      background:linear-gradient(180deg,#0f2142,#12355b);
       color:white;
       text-align:center;
-      padding:70px 20px;
+      padding:80px 20px 60px;
       margin-top:100px;
+      overflow:hidden;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    footer::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:radial-gradient(circle at top,rgba(255,255,255,0.08),transparent 32%);
+    }
+
+    .footer-copy{
+      max-width:860px;
+      margin:0 auto;
+      display:grid;
+      gap:10px;
+      z-index:1;
+      position:relative;
+    }
+
+    .footer-brand{
+      font-size:1.1rem;
+      font-weight:700;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.96);
+      margin-bottom:6px;
     }
 
     footer p{
-      margin:10px 0;
+      margin:0;
       line-height:1.8;
+      color:rgba(255,255,255,0.88);
+      font-size:0.98rem;
+    }
+
+    .footer-verse{
+      font-size:1.05rem;
+      letter-spacing:0.5px;
+      color:rgba(255,255,255,0.92);
+    }
+
+    .footer-ref{
+      font-weight:600;
+      color:#c7dfff;
+      margin-top:5px;
+    }
+
+    .footer-credit{
+      color:rgba(207,224,255,0.88);
+      font-size:0.95rem;
+      margin-top:12px;
     }
 
     /* RESPONSIVE */
@@ -423,58 +472,23 @@
         left:10px !important;
       }
 
+      .bible-verse-anim svg{
+        max-width:100%;
+      }
+
+      .cursive-logo text{
+        font-size:72px;
+      }
+
+      footer{
+        padding:60px 16px 40px;
+      }
+
     }
 
-    /* BIBLE VERSE ANIMATION */
+    /* SIGNATURE ANIMATION */
 
-    .bible-verse-anim{
-      position:relative;
-      height:180px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:20px;
-      margin-bottom:22px;
-      pointer-events:none;
-    }
-
-    .bible-verse-anim svg{width:560px; max-width:95%; height:160px; display:block; overflow:visible}
-
-    .cursive-logo text{
-      font-family:'Great Vibes', cursive;
-      font-size:72px;
-      fill:none;
-      stroke-width:6;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-    }
-
-    .cursive-glow{
-      stroke:rgba(100,171,255,0.38);
-      stroke-width:14;
-      filter:blur(4px);
-      opacity:0.45;
-      animation: glowPulse 3.2s ease-in-out infinite;
-    }
-
-    .cursive-path{
-      stroke:url(#inkGrad);
-      stroke-dasharray:1400;
-      stroke-dashoffset:1400;
-      animation: drawText 4s ease-in-out infinite alternate;
-    }
-
-    @keyframes drawText{
-      0%{stroke-dashoffset:1400; opacity:0.2}
-      40%{stroke-dashoffset:0; opacity:1}
-      80%{opacity:1}
-      100%{stroke-dashoffset:0; opacity:0.8}
-    }
-
-    @keyframes glowPulse{
-      0%,100%{opacity:0.35; filter:blur(4px);}
-      50%{opacity:0.55; filter:blur(6px);}
-    }
+    /* Signature animation removed; footer only displays text content now. */
   </style>
 </head>
 <body>
@@ -730,32 +744,12 @@
 
   <footer>
 
-    <div class="bible-verse-anim" aria-hidden="true">
-      <svg viewBox="0 0 560 160" class="cursive-logo" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="inkGrad" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0%" stop-color="#ffffff" />
-            <stop offset="50%" stop-color="#a8d7ff" />
-            <stop offset="100%" stop-color="#5fa7ff" />
-          </linearGradient>
-        </defs>
-
-        <text x="28" y="110" class="cursive-glow">Anthony Archivo</text>
-        <text x="28" y="110" class="cursive-path">Anthony Archivo</text>
-      </svg>
+    <div class="footer-copy">
+      <p class="footer-brand">AI-Powered Creative Support</p>
+      <p class="footer-verse">“I can do all things through Christ who strengthens me.”</p>
+      <p class="footer-ref">— Philippians 4:13</p>
+      <p class="footer-credit">Designed with passion, creativity, and AI innovation by Anthony Archivo.</p>
     </div>
-
-    <p>
-      “I can do all things through Christ who strengthens me.”
-    </p>
-
-    <p>
-      — Philippians 4:13
-    </p>
-
-    <p>
-      Designed with passion, creativity, and AI innovation by Anthony Archivo.
-    </p>
 
   </footer>
 
@@ -851,15 +845,6 @@
       });
 
     });
-
-    // BIBLE VERSE ANIMATION — cursive logo draw effect
-
-    const cursivePath = document.querySelector('.cursive-path');
-    if(cursivePath){
-      const length = cursivePath.getComputedTextLength ? cursivePath.getComputedTextLength() : 1400;
-      cursivePath.style.strokeDasharray = length;
-      cursivePath.style.strokeDashoffset = length;
-    }
 
   </script>
 
