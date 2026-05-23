@@ -887,37 +887,28 @@
         r: 28,
         vx: (Math.random()*300-150),
         vy: (Math.random()*200-100),
-        color1: '#69b3ff',
-        color2: '#2b83f7',
-        bounce: 0.92
+        color: '#ff3e5b',
+        bounce: 0.98
       };
 
       function drawBall(){
         const w = canvas.width / DPR, h = canvas.height / DPR;
-        const {x,y,r} = ball;
+        const {x,y,r,color} = ball;
         // shadow
         ctx.beginPath();
         ctx.ellipse(x, y + r*1.05, r*0.8, r*0.28, 0, 0, Math.PI*2);
-        ctx.fillStyle = 'rgba(10,20,40,0.09)';
+        ctx.fillStyle = 'rgba(10,20,40,0.12)';
         ctx.fill();
-
-        // gradient offset depends on velocity
-        const gx = x - Math.max(-1, Math.min(1, ball.vx/400)) * r * 0.5;
-        const gy = y - Math.max(-1, Math.min(1, ball.vy/400)) * r * 0.5;
-        const grad = ctx.createRadialGradient(gx, gy, r*0.15, x, y, r);
-        grad.addColorStop(0, ball.color1);
-        grad.addColorStop(0.6, ball.color2);
-        grad.addColorStop(1, '#0b3a66');
 
         ctx.beginPath();
         ctx.arc(x, y, r, 0, Math.PI*2);
-        ctx.fillStyle = grad;
+        ctx.fillStyle = color;
         ctx.fill();
 
-        // small specular highlight
+        // subtle highlight for volume
         ctx.beginPath();
-        ctx.arc(gx - r*0.28, gy - r*0.28, r*0.45, 0, Math.PI*2);
-        ctx.fillStyle = 'rgba(255,255,255,0.18)';
+        ctx.arc(x - r*0.2, y - r*0.25, r*0.35, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(255,255,255,0.16)';
         ctx.fill();
       }
 
@@ -936,9 +927,9 @@
         if(ball.y + ball.r > h){ ball.y = h - ball.r; ball.vy = -Math.abs(ball.vy) * ball.bounce; ball.vx *= 0.995; }
         if(ball.y - ball.r < 0){ ball.y = ball.r; ball.vy = Math.abs(ball.vy) * ball.bounce; }
 
-        // tiny air resistance
-        ball.vx *= 0.999;
-        ball.vy *= 0.999;
+        // lighter air resistance so bounce stays energetic
+        ball.vx *= 0.9995;
+        ball.vy *= 0.9995;
 
         ctx.clearRect(0,0,w,h);
         drawBall();
