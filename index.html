@@ -62,16 +62,6 @@
       border-radius: 20px;
     }
 
-    .cursor-glow {
-      width: 320px;
-      height: 320px;
-      position: fixed;
-      background: radial-gradient(circle, rgba(78,167,255,0.15), transparent 62%);
-      pointer-events: none;
-      z-index: -1;
-      transform: translate(-50%, -50%);
-    }
-
     nav {
       position: fixed;
       width: 100%;
@@ -595,10 +585,7 @@
 </head>
 <body>
 
-  <div class="cursor-glow"></div>
 
-  <nav>
-    <h1>Anthony Archivo</h1>
 
     <ul>
       <li><a href="#about">About</a></li>
@@ -914,15 +901,6 @@
   <!-- JAVASCRIPT -->
 
   <script>
-
-    // CURSOR GLOW
-
-    const glow = document.querySelector('.cursor-glow');
-
-    window.addEventListener('mousemove',(e)=>{
-      glow.style.left = e.clientX + 'px';
-      glow.style.top = e.clientY + 'px';
-    });
 
     // TILT EFFECT
 
